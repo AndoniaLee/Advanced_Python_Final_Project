@@ -129,7 +129,7 @@ WHITE = (255, 255, 255)
 font = pygame.font.SysFont("Stencil",24)
 ```
 
-- Collision detector: chech the status of the ball
+- Collision detector: check the status of the ball
 ```py
 def check_collide(ball, p_x, p_y, p_w):
     lose = ball.lose
