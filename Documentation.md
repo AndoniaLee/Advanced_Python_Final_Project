@@ -10,7 +10,7 @@ by Team A:
 
 ### **Conceptual specifications**
 
-Pong! is a simple, easy to play mini-game. The player only needs to control Pedal. The aim is to catch the ball and once the ball is not caught, the game is over. The number of balls increases over time and the game becomes more difficult.
+Pong! is a simple, easy to play mini-game. The player only needs to control paddle to catch the ball, and once the ball is not caught, the game is over. The number of balls increases over time and the game becomes more difficult.
 
 The player's score is displayed in the top left corner of the game and the final score is displayed in the centre of the screen at the end of the game.
 
@@ -20,14 +20,18 @@ Development language: **Python 3**
 
 Third-party library: **Pygame, Random**.
 
-The game is designed for 1 class: **Ball** stored in **ball.py** and file **pong_oop.py**.
+The game is designed for 2 class: **Ball** and **Size_change_ball** stored in **ball.py** and file **pong_oop.py**.
 
 **Class functionality/Requirements**:
 1. The base class `Ball`: 
 - Responsible for the storage of ball types. In `class Ball`, main constructor will initialize the ball types: coordinates, position, velocity and size of the ball; sounds including hitting sound and losing sound. 
 - Define the way the ball moves: once the ball touches the x-axis, it moves in the -1 direction on the y-axis and vice versa.
 
-2. Pygame File `pong_oop.py`: 
+2. The derived class `Size_change_ball`:
+Inherited from the base class, to generate balls that can vary in size in the game.
+
+
+3. Pygame File `pong_oop.py`: 
 - The game file is responsible for the main part of the game operation, which has 3 status of the game, beginning, playing, and end. 
 - The game is run by calling the classes & functions in the class file, the user monitor function is also running to check the user's keyboard input.
 
@@ -288,33 +292,31 @@ pygame.quit()
 
 ### Execution Model
 
-pygame:
-Userinput monitor: key, exit, 
+When the code is run, the user is taken to the Pygame main form, where user can press 'S' to start the game.
 
-status: beginning, 
-playing 每隔多久出现一个球 在list里，move，是否在界外check collide, paddle position， score update
-end：score restart
+In the game, the player controls the paddle via the left and right keyboard keys. The game consists of two states: Beginning and End：
 
+In Beginning, the player can play the game and each time the paddle catches a ball, the player adds one point to the score, which is displayed in the top left corner of the window. Method 'check_collide' will monitor if the ball has been successfully taken by the paddle and achieve a ball bounce if the player does not lose. In addition to the player controlling the paddle, the game is made more difficult by generating an extra ball every 1000 frames. When the player does not receive the ball, the game fails and the game goes to the state End.
 
-class: size change， grow mode can change size, update every frame
+In state End, the game displays the player's final score. The player can replay the game by pressing the R button.
 
 ### Github link & Last Commit
 - ball.py:
 https://github.com/AndoniaLee/Advanced_Python_Final_Project/blob/main/ball.py
 
-|Name       | Date          | Full Commit SHA                           | Content                           |
+| Name      | Date          | Full Commit SHA                           | Content                           |
 |-----------|---------------|------------------------------|----------------------------------|
-|Xiaonan Li | June 27 2022  | 00e57320dfdb77b91b8c749d6ddf656a9f0735d7  | Added ball class python file                              |
-|Xinyu Wang | July 3 2022   | cbc85802e0c8d74464a62f58b75dcfe0b3adfb02  | added a child class: ball type that changes sizes along time      |
+| Xiaonan Li | June 27 2022  | 00e57320dfdb77b91b8c749d6ddf656a9f0735d7  | Added ball class python file                              |
+| Xinyu Wang | July 3 2022   | cbc85802e0c8d74464a62f58b75dcfe0b3adfb02  | Added a child class: ball type that changes sizes along time      |
 
 - pong_oop.py:
 https://github.com/AndoniaLee/Advanced_Python_Final_Project/blob/main/pong_oop.py
 
-|Name       | Date          | Full Commit SHA                           | Content                           |
+| Name      | Date          | Full Commit SHA                           | Content                           |
 |-----------|---------------|------------------------------|----------------------------------|
 | Xiaonan Li | June 30 2022  | 6da54cd73512dfce5591b2bd35c8288375c31ede  | Add images and main running code                              |
 | Peiyu Xiao | July 1 2022   | 6132fdce66afdc1c4fdc404db9f3779f8215860a  | Added beginning interface and ending interface                    |
 | Peiyu Xiao | July 1 2022   | d13cae5fa42ff64d6f0443a3e38eccdb657c119d  | Added multiple balls and levels to the game                       |
-| Xinyu Wang | July 2 2022   | 227b0f2cec3a68a69640b4430d89509c85da4c0b  | fixing the problem that the game cannot restart after losing          |
+| Xinyu Wang | July 2 2022   | 227b0f2cec3a68a69640b4430d89509c85da4c0b  | Fixing the problem that the game cannot restart after losing          |
 | Xujia Li | July 3 2022   | 待贴  | 待贴          |
 | Xujia Li | July 3 2022   | 待贴  | 待贴          |
