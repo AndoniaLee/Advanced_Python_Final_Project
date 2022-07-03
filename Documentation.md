@@ -320,4 +320,4 @@ https://github.com/AndoniaLee/Advanced_Python_Final_Project/blob/main/pong_oop.p
 | Peiyu Xiao | July 1 2022   | d13cae5fa42ff64d6f0443a3e38eccdb657c119d  | Added multiple balls and levels to the game                       |
 | Xinyu Wang | July 2 2022   | 227b0f2cec3a68a69640b4430d89509c85da4c0b  | Fixing the problem that the game cannot restart after losing          |
 | Xujia Li | July 4 2022   | 待贴  | Changed the interface         |
-
+| Xujia Li | July 4 2022   | 00dae8cab474814cfc4297cc667e43ff8055bff3  | Added a new sub-class of ball: speed-changing ball       |
