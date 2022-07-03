@@ -308,6 +308,7 @@ https://github.com/AndoniaLee/Advanced_Python_Final_Project/blob/main/ball.py
 |-----------|---------------|------------------------------|----------------------------------|
 | Xiaonan Li | June 27 2022  | 00e57320dfdb77b91b8c749d6ddf656a9f0735d7  | Added ball class python file                              |
 | Xinyu Wang | July 3 2022   | cbc85802e0c8d74464a62f58b75dcfe0b3adfb02  | Added a child class: ball type that changes sizes along time      |
+| Xujia Li | July 4 2022   | 待贴  | Added a new sub-class of ball: speed-changing ball        |
 
 - pong_oop.py:
 https://github.com/AndoniaLee/Advanced_Python_Final_Project/blob/main/pong_oop.py
@@ -318,5 +319,5 @@ https://github.com/AndoniaLee/Advanced_Python_Final_Project/blob/main/pong_oop.p
 | Peiyu Xiao | July 1 2022   | 6132fdce66afdc1c4fdc404db9f3779f8215860a  | Added beginning interface and ending interface                    |
 | Peiyu Xiao | July 1 2022   | d13cae5fa42ff64d6f0443a3e38eccdb657c119d  | Added multiple balls and levels to the game                       |
 | Xinyu Wang | July 2 2022   | 227b0f2cec3a68a69640b4430d89509c85da4c0b  | Fixing the problem that the game cannot restart after losing          |
-| Xujia Li | July 4 2022   | 待贴  | 待贴          |
-| Xujia Li | July 4 2022   | 待贴  | 待贴          |
+| Xujia Li | July 4 2022   | 待贴  | changed the interface         |
+
