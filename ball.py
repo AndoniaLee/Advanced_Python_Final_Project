@@ -88,3 +88,31 @@ class Size_Change_Ball(Ball):
     def draw(self, screen):
         if not self.lose:
             screen.blit(self.img, (self.x, self.y))
+
+class Speed_Change_Ball(Ball):
+    
+    def __init__(self,img, x, y, d, x_speed, y_speed):
+        super().__init__(img, x, y, d, x_speed, y_speed)
+        self.grow = 0
+        self.mode = 1
+        self.orig_img = img
+    
+    def get_type(self):
+        return SPEED_CHANGING
+
+    def update(self):
+        if self.grow > 1:
+            self.mode = -1
+        if self.grow < 1:
+            self.mode = 1
+        self.grow += self.mode 
+
+        self.x_speed += self.grow
+        self.y_speed += self.grow
+
+    def get_size(self):
+        return self.d
+
+    def draw(self, screen):
+        if not self.lose:
+            screen.blit(self.img, (self.x, self.y))
