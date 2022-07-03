@@ -21,7 +21,8 @@ END = 2
 WHITE = (255, 255, 255)
 
 # fonts
-font = pygame.font.SysFont("Stencil",24)
+title_font = pygame.font.SysFont("Arial Black",60)
+font = pygame.font.SysFont("Ayuthaya",24)
 
 def check_collide(ball, p_x, p_y, p_w):
     lose = ball.lose
@@ -74,9 +75,9 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 key = event.key
                 if key == pygame.K_RIGHT:
-                    paddle_speed = 10
+                    paddle_speed = 15
                 elif key == pygame.K_LEFT:
-                    paddle_speed = -10
+                    paddle_speed = -15
                 elif key == pygame.K_s and status == BEGINNING:
                     status = PLAYING
                     timer = 0
@@ -93,7 +94,8 @@ def main():
             if timer == 1000:
                 ball_x = random.randint(100,SCREEN_WIDTH)
                 ball_y = random.randint(40,SCREEN_HEIGHT/3)
-                ball_list.append(Size_Change_Ball(ball_img, ball_x, ball_y, ball_d, ball_x_speed, ball_y_speed))
+                which_ball = random.choice([Ball,Speed_Change_Ball,Size_Change_Ball])
+                ball_list.append(which_ball(ball_img, ball_x, ball_y, ball_d, ball_x_speed, ball_y_speed))
                 timer = 0
             
             # ball position change
@@ -141,23 +143,32 @@ def main():
             ball_list.append(Ball(ball_img, ball_x, ball_y, ball_d, ball_x_speed, ball_y_speed))
 
             # show text
+            welcomestring = "MINI PONG"
+            text = title_font.render(welcomestring,True,WHITE)
+            screen.blit(text,(220,200))
+            
             welcomestring = "Welcome to the pong game"
             text = font.render(welcomestring,True,WHITE)
-            screen.blit(text,(300,200))
+            screen.blit(text,(240,350))
 
             welcomestring = "Please press S to start"
             text = font.render(welcomestring,True,WHITE)
-            screen.blit(text,(310,220))
+            screen.blit(text,(250,400))
 
         elif status == END:
+            screen.blit(bg, (0, 0))
+            
+            welcomestring = "GAME OVER"
+            text = title_font.render(welcomestring,True,WHITE)
+            screen.blit(text,(220,200))
             
             resultstring = " You get "+str(score)+" points."
             text = font.render(resultstring,True,WHITE)
-            screen.blit(text,(300,200))
+            screen.blit(text,(240,350))
 
             resultstring = "Please press R to return"
             text = font.render(resultstring,True,WHITE)
-            screen.blit(text,(310,220))
+            screen.blit(text,(250,400))
         
         pygame.display.update()
 
