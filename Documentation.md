@@ -20,7 +20,7 @@ Development language: **Python 3**
 
 Third-party library: **Pygame, Random**.
 
-The game is designed for 3 class: **Ball**, **Size_change_ball** and **另一个调皮ball** stored in **ball.py** and file **pong_oop.py**.
+The game is designed for 3 class: **Ball**, **Size_change_ball** and **Speed_change_ball** stored in **ball.py** and file **pong_oop.py**.
 
 **Class functionality/Requirements**:
 1. The base class `Ball`: 
@@ -30,8 +30,8 @@ The game is designed for 3 class: **Ball**, **Size_change_ball** and **另一个
 2. The derived class `Size_change_ball`:
 Inherited from the base class, to generate balls that can vary in size in the game.
 
-3. The derived class:
-Inherited from the base class, 方向不定，速度变化
+3. The derived class `Speed_change_ball`:
+Inherited from the base class, to generate balls that can vary in speed in the game.
 
 4. Pygame File `pong_oop.py`: 
 - The game file is responsible for the main part of the game operation, which has 3 status of the game, beginning, playing, and end. 
@@ -298,7 +298,7 @@ When the code is run, the user is taken to the Pygame main form, where user can 
 
 In the game, the player controls the paddle via the left and right keyboard keys. The game consists of two states: Beginning and End：
 
-In Beginning, the player can play the game and each time the paddle catches a ball, the player adds one point to the score, which is displayed in the top left corner of the window. Method 'check_collide' will monitor if the ball has been successfully taken by the paddle and achieve a ball bounce if the player does not lose. In addition to the player controlling the paddle, the game is made more difficult by generating an extra ball every 1000 frames. When the player does not receive the ball, the game fails and the game goes to the state End.
+In Beginning, the player can play the game and each time the paddle catches a ball, the player adds one point to the score, which is displayed in the top left corner of the window. Method 'check_collide' will monitor if the ball has been successfully taken by the paddle and achieve a ball bounce if the player does not lose. In addition to the player controlling the paddle, the game is made more difficult by generating an extra ball every 1000 frames. When the player could not get the ball, the game fails and the game goes to the state End.
 
 In state End, the game displays the player's final score. The player can replay the game by pressing the R button.
 
