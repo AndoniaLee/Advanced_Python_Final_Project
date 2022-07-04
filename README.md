@@ -101,6 +101,75 @@ class Ball:
     def play_hit_sound(self):
         self.hit_sound.play()
 ```
+- Define the derivative class for saving the functions and parameters of the ball that can change its size
+```py
+class Size_Change_Ball(Ball):
+    
+    def __init__(self,img, x, y, d, x_speed, y_speed):
+        super().__init__(img, x, y, d, x_speed, y_speed)
+        self.grow = 0
+        self.mode = 1
+        self.orig_img = img
+    
+    def get_type(self):
+        return SIZE_CHANGING
+```
+- Update: update the size of the ball
+```py
+    def update(self):
+        if self.grow > 40:
+            self.mode = -1
+        if self.grow < 1:
+            self.mode = 1
+        self.grow += self.mode 
+
+        self.d = self.orig_img.get_size()[0] + round(self.grow)
+        self.img = pygame.transform.scale(self.orig_img, (self.d, self.d))
+
+    def get_size(self):
+        return self.d
+```
+- Draw: show the ball on the screen
+```py
+    def draw(self, screen):
+        if not self.lose:
+            screen.blit(self.img, (self.x, self.y))
+```
+- Define the derivative class for saving the functions and parameters of the naughty ball that can change its speed
+```py
+class Speed_Change_Ball(Ball):
+    
+    def __init__(self,img, x, y, d, x_speed, y_speed):
+        super().__init__(img, x, y, d, x_speed, y_speed)
+        self.grow = 0
+        self.mode = 1
+        self.orig_img = img
+    
+    def get_type(self):
+        return SPEED_CHANGING
+```
+- Update: update the size of the naughty ball
+```py
+    def update(self):
+        if self.grow > 1:
+            self.mode = -1
+        if self.grow < 1:
+            self.mode = 1
+        self.grow += self.mode 
+
+        self.x_speed += self.grow
+        self.y_speed += self.grow
+
+    def get_size(self):
+        return self.d
+```
+- Draw: show the naughty ball on the screen
+```py
+    def draw(self, screen):
+        if not self.lose:
+            screen.blit(self.img, (self.x, self.y))
+```
+
 
 #### **Pygame File `pong_oop.py`**
 - Set up Pygame: import `ball.py`, set up window size, background, constants, fonts
@@ -322,3 +391,34 @@ https://github.com/AndoniaLee/Advanced_Python_Final_Project/blob/main/pong_oop.p
 | Peiyu Xiao | July 1 2022   | d13cae5fa42ff64d6f0443a3e38eccdb657c119d  | Added multiple balls and levels to the game                       |
 | Xinyu Wang | July 2 2022   | 227b0f2cec3a68a69640b4430d89509c85da4c0b  | Fixing the problem that the game cannot restart after losing          |
 | Xujia Li | July 4 2022   | e58ece4dfe0452d6094f3ac7cf84c9773673f186  | Changed the interface         |
+
+
+
+## Terminal Execution:
+
+```py
+pygame 2.1.2 (SDL 2.0.18, Python 3.10.1)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+---------------------------------------------------------------------------
+Game Initializing...
+---------------------------------------------------------------------------
+Game at beginning stage
+---------------------------------------------------------------------------
+Game at playing stage
+A size changing ball is generated...
+---------------------------------------------------------------------------
+Game at ending stage
+---------------------------------------------------------------------------
+Game restarting...
+---------------------------------------------------------------------------
+Game at playing stage
+A normal ball is generated...
+A speed changing ball is generated...
+---------------------------------------------------------------------------
+Game at ending stage
+---------------------------------------------------------------------------
+Quiting game...
+---------------------------------------------------------------------------
+Game quitted...
+---------------------------------------------------------------------------
+```
