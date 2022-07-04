@@ -20,7 +20,7 @@ Development language: **Python 3**
 
 Third-party library: **Pygame, Random**.
 
-The game is designed for 2 class: **Ball** and **Size_change_ball** stored in **ball.py** and file **pong_oop.py**.
+The game is designed for 3 class: **Ball**, **Size_change_ball** and **另一个调皮ball** stored in **ball.py** and file **pong_oop.py**.
 
 **Class functionality/Requirements**:
 1. The base class `Ball`: 
@@ -30,8 +30,10 @@ The game is designed for 2 class: **Ball** and **Size_change_ball** stored in **
 2. The derived class `Size_change_ball`:
 Inherited from the base class, to generate balls that can vary in size in the game.
 
+3. The derived class:
+Inherited from the base class, 方向不定，速度变化
 
-3. Pygame File `pong_oop.py`: 
+4. Pygame File `pong_oop.py`: 
 - The game file is responsible for the main part of the game operation, which has 3 status of the game, beginning, playing, and end. 
 - The game is run by calling the classes & functions in the class file, the user monitor function is also running to check the user's keyboard input.
 
